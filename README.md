@@ -15,29 +15,28 @@ The most comprehensive SEO/UX/GEO MCP server.
 
 ## Status
 
-> **Alpha** — 18 tools fully implemented, 15 planned (stubs returning helpful messages), 4 optional (DataForSEO API).
+> **Alpha** — 33 tools fully implemented, 4 optional (DataForSEO API — requires key).
 > Contributions welcome!
 
 ## Features
 
-### Working now
 - **Full 13-step SEO+UX audit** with 11-category scoring (1-10)
 - **GEO**: Generative Engine Optimization for AI search (ChatGPT, Perplexity, SGE, Claude, Copilot)
 - Princeton 9 methods for AI citation optimization (+40% visibility boost)
 - AI crawler robots.txt analysis and generation (13 AI bots tracked)
 - Lighthouse + Core Web Vitals (optional, graceful fallback)
 - UX audit (navigation, search, semantics, responsive, overlays)
-- **PDF report generation** (JSON structure + branded PDF via pdf-generator)
-
-### Planned (in development)
+- **PDF report generation** (JSON structure + branded PDF, EN/PL)
 - WCAG 2.2 accessibility audit
-- Schema.org validation with JSON-LD templates
+- Schema.org validation with 10 JSON-LD templates
 - Internal link graph analysis with BFS crawler
-- SSL/TLS audit, security headers
-- Content readability + E-E-A-T signals
-- Side-by-side competitor comparison
-- Server log analysis for crawl budget
-- And more — see Tools Reference below
+- SSL/TLS audit + 7 security headers check
+- Content readability (FK, Fog, FRE) + E-E-A-T signals
+- Side-by-side competitor comparison (up to 3)
+- Hreflang validation + local SEO + media audit
+- JS rendering / SPA detection (React, Next.js, Vue, Angular)
+- Server log analysis + GSC CSV import
+- Topic cluster structure analysis
 
 ## Quick Start
 
@@ -86,9 +85,7 @@ echo '...' | docker run -i seoleo-mcp
 
 ## Tools Reference
 
-Legend: **Working** | *Planned*
-
-### Technical SEO (5) — Working
+### Technical SEO (5)
 | Tool | Description |
 |------|-------------|
 | `seo_audit_technical` | Full 13-step SEO+UX audit with scoring |
@@ -97,8 +94,7 @@ Legend: **Working** | *Planned*
 | `seo_check_headers` | HTTP security headers check |
 | `seo_check_performance` | Lighthouse CWV (mobile+desktop) |
 
-### GEO — AI Search Optimization (7) — Working
-| Tool | Description |
+### GEO — AI Search Optimization (7)| Tool | Description |
 |------|-------------|
 | `seo_audit_geo` | Princeton 9 methods GEO audit |
 | `seo_optimize_geo` | GEO optimization suggestions |
@@ -108,44 +104,37 @@ Legend: **Working** | *Planned*
 | `seo_get_geo_checklist` | GEO optimization checklist (P0/P1/P2) |
 | `seo_get_seo_checklist` | Traditional SEO checklist (P0/P1/P2) |
 
-### Reporting (1) — Working
-| Tool | Description |
+### Reporting (1)| Tool | Description |
 |------|-------------|
 | `seo_generate_report` | JSON report + branded PDF generation (EN/PL) |
 
-### Utility (1) — Working
-| Tool | Description |
+### Utility (1)| Tool | Description |
 |------|-------------|
 | `seo_get_config` | Server status and feature availability |
 
-### Content Analysis (3) — *Planned*
-| Tool | Description |
+### Content Analysis (3)| Tool | Description |
 |------|-------------|
 | `seo_analyze_content` | *Readability (FK, Fog, FRE) + keyword density* |
 | `seo_check_eeat` | *E-E-A-T signal detection* |
 | `seo_audit_topic_clusters` | *Topic cluster structure analysis* |
 
-### Schema / Structured Data (3) — *Planned*
-| Tool | Description |
+### Schema / Structured Data (3)| Tool | Description |
 |------|-------------|
 | `seo_validate_schema` | *JSON-LD validation vs Google requirements* |
 | `seo_generate_schema` | *Generate JSON-LD from 10 templates* |
 | `seo_check_rich_results` | *Rich Result eligibility check* |
 
-### Security (2) — *Planned*
-| Tool | Description |
+### Security (2)| Tool | Description |
 |------|-------------|
 | `seo_audit_ssl` | *Full SSL/TLS audit* |
 | `seo_check_security_headers` | *Security headers analysis* |
 
-### Links (2) — *Planned*
-| Tool | Description |
+### Links (2)| Tool | Description |
 |------|-------------|
 | `seo_audit_links` | *BFS crawl + link graph analysis* |
 | `seo_check_broken_links` | *Quick broken link scan* |
 
-### Other (5) — *Planned*
-| Tool | Description |
+### Other (5)| Tool | Description |
 |------|-------------|
 | `seo_audit_accessibility` | *WCAG 2.2 Level AA audit* |
 | `seo_check_hreflang` | *International SEO validation* |
@@ -153,15 +142,14 @@ Legend: **Working** | *Planned*
 | `seo_audit_media` | *Image/video SEO audit* |
 | `seo_compare_competitors` | *Side-by-side comparison (up to 3)* |
 
-### Advanced (4) — *Planned*
-| Tool | Description |
+### Advanced (4)| Tool | Description |
 |------|-------------|
 | `seo_check_js_rendering` | *SPA/JS rendering detection* |
 | `seo_analyze_logs` | *Server log analysis* |
 | `seo_analyze_gsc` | *Google Search Console data analysis* |
 | `seo_compare_audits` | *Audit diff and trends* |
 
-### DataForSEO (4, optional) — *Requires API key*
+### DataForSEO (4, optional) (requires API key)
 | Tool | Description |
 |------|-------------|
 | `seo_research_keywords` | *Keyword volume, CPC, competition* |
