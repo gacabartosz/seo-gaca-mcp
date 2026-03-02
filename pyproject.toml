@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seoleo-mcp"
+version = "0.2.0"
+description = "The most comprehensive SEO/UX/GEO MCP server — 37 tools for technical SEO, content analysis, accessibility, AI search optimization, and more."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Bartosz Gaca", email = "contact@bartoszgaca.pl" }
+]
+keywords = ["seo", "mcp", "geo", "audit", "ai", "claude", "llm", "generative-engine-optimization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "mcp[cli]>=1.0",
+    "requests>=2.28",
+    "beautifulsoup4>=4.12",
+    "lxml>=4.9",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dataforseo = ["httpx>=0.25"]
+email = ["python-dotenv>=1.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "mypy>=1.5",
+    "ruff>=0.1",
+    "respx>=0.20",
+]
+
+[project.scripts]
+seoleo-mcp = "seoleo.__main__:main"
+seoleo = "seoleo.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seoleo"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
