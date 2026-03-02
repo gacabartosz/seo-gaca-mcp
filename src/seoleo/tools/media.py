@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 from seoleo.core.collectors import fetch_html
-from seoleo.core.parsers import parse_images, parse_schema, parse_meta_tags
+from seoleo.core.parsers import parse_schema, parse_meta_tags
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +28,6 @@ def audit_media(url: str) -> dict:
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "lxml")
 
-    images = parse_images(html)
     schema = parse_schema(html)
     meta = parse_meta_tags(html)
 
@@ -36,7 +35,8 @@ def audit_media(url: str) -> dict:
     recs: list[str] = []
 
     # --- IMAGE ANALYSIS ---
-    total_images = len(images)
+    img_tags = soup.find_all("img")
+    total_images = len(img_tags)
     with_alt = 0
     missing_alt = 0
     empty_alt = 0
@@ -48,7 +48,7 @@ def audit_media(url: str) -> dict:
     with_dimensions = 0
     large_without_srcset = 0
 
-    for img in images:
+    for img in img_tags:
         src = img.get("src", "") or ""
         alt = img.get("alt")
         loading = img.get("loading", "")
