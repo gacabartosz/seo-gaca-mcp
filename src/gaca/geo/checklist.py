@@ -2,8 +2,8 @@
 
 from datetime import datetime, timezone
 
-from seoleo.core.collectors import fetch_html, fetch_robots
-from seoleo.core.parsers import parse_meta_tags, parse_schema, parse_headings
+from gaca.core.collectors import fetch_html, fetch_robots
+from gaca.core.parsers import parse_meta_tags, parse_schema, parse_headings
 
 GEO_CHECKLIST = [
     {"id": "geo-01", "priority": "P0", "category": "Schema", "check": "Add FAQPage JSON-LD schema (+40% AI visibility)", "how": "Add FAQ schema to key landing pages"},

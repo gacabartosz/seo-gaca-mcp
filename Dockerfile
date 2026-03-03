@@ -20,4 +20,4 @@ COPY src/ ./src/
 RUN uv pip install --system -e .
 
 # MCP stdio transport
-ENTRYPOINT ["python", "-m", "seoleo"]
+ENTRYPOINT ["python", "-m", "gaca"]

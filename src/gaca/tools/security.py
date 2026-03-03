@@ -7,7 +7,7 @@ import ssl
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from seoleo.core.collectors import fetch_headers, fetch_html, fetch_ssl_info
+from gaca.core.collectors import fetch_headers, fetch_html, fetch_ssl_info
 
 logger = logging.getLogger(__name__)
 

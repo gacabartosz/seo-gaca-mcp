@@ -41,7 +41,7 @@ def _build_report_json(
 ) -> dict:
     """Convert audit tool output to pdf-generator JSON format.
 
-    Handles output from any seoleo tool (technical audit, GEO, meta check, etc.).
+    Handles output from any gaca tool (technical audit, GEO, meta check, etc.).
     Returns the content blocks structure expected by pdf-generator.
     """
     url = audit_data.get("url", "")
@@ -200,9 +200,9 @@ def _build_report_json(
 
     return {
         "title": auto_title,
-        "subtitle": f"seoleo-mcp | {timestamp[:10]}",
+        "subtitle": f"gaca-mcp | {timestamp[:10]}",
         "date": timestamp[:10],
-        "author": "seoleo-mcp",
+        "author": "gaca-mcp",
         "show_logo": True,
         "content": content,
     }
@@ -324,10 +324,10 @@ def generate_report(
     output_path: str = "",
     brand: str = "",
 ) -> dict:
-    """Generate a structured SEO audit report from any seoleo tool output.
+    """Generate a structured SEO audit report from any gaca tool output.
 
     Args:
-        audit_data: Output dict from any seoleo tool (technical audit, GEO, meta, etc.)
+        audit_data: Output dict from any gaca tool (technical audit, GEO, meta, etc.)
         format: 'json' returns content blocks, 'pdf' generates PDF file
         language: 'en' or 'pl' for report labels
         title: Custom report title (auto-generated if empty)
@@ -364,7 +364,7 @@ def generate_report(
             date_str = datetime.now().strftime("%Y%m%d_%H%M")
             output_dir = Path.home() / "output/personal"
             output_dir.mkdir(parents=True, exist_ok=True)
-            output_path = str(output_dir / f"seoleo_{safe_domain}_{date_str}.pdf")
+            output_path = str(output_dir / f"gaca_{safe_domain}_{date_str}.pdf")
 
         try:
             with tempfile.NamedTemporaryFile(

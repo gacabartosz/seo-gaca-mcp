@@ -4,8 +4,8 @@ import logging
 import re
 from datetime import datetime, timezone
 
-from seoleo.core.collectors import fetch_html
-from seoleo.core.parsers import parse_schema, parse_meta_tags
+from gaca.core.collectors import fetch_html
+from gaca.core.parsers import parse_schema, parse_meta_tags
 
 logger = logging.getLogger(__name__)
 

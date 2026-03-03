@@ -3,7 +3,7 @@
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from seoleo.core.collectors import fetch_robots
+from gaca.core.collectors import fetch_robots
 
 AI_CRAWLERS = {
     "GPTBot": {"org": "OpenAI", "purpose": "ChatGPT training + browsing plugins"},
@@ -110,7 +110,7 @@ def generate_ai_robots(strategy: str = "recommended", current_robots: str = "") 
     rules = templates[strategy]
 
     if current_robots:
-        merged = current_robots.rstrip() + "\n\n# === AI Crawler Rules (seoleo-mcp) ===\n" + rules
+        merged = current_robots.rstrip() + "\n\n# === AI Crawler Rules (gaca-mcp) ===\n" + rules
     else:
         merged = rules
 
@@ -164,7 +164,7 @@ def _template_recommended() -> str:
     block = ["Bytespider", "CCBot", "cohere-ai"]
 
     lines = [
-        "# AI Crawlers: Recommended Configuration (seoleo-mcp)",
+        "# AI Crawlers: Recommended Configuration (gaca-mcp)",
         "# Balance: visible in AI search, protected from mass scraping",
         "",
         "# Allow AI search engines (ChatGPT, Perplexity, Claude, Gemini, Apple)",

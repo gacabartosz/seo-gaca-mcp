@@ -3,7 +3,7 @@
 import re
 from datetime import datetime, timezone
 
-from seoleo.geo.analyzer import PRINCETON_METHODS, _avg_sentence_length
+from gaca.geo.analyzer import PRINCETON_METHODS, _avg_sentence_length
 
 
 def optimize_geo(

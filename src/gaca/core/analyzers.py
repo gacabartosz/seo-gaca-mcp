@@ -252,6 +252,24 @@ def _check_lighthouse(issues: list, lh_mobile: dict, lh_desktop: dict) -> None:
             issues.append({"category": "performance", "severity": MEDIUM,
                             "issue": f"TBT za wysoki ({label}): {tbt.get('display', '')}",
                             "recommendation": "Zmniejsz Total Blocking Time (cel: <200ms)."})
+        inp = cwv.get("inp", {})
+        if inp and inp.get("value", 0) > 500:
+            issues.append({"category": "performance", "severity": HIGH,
+                            "issue": f"INP za wysoki ({label}): {inp.get('display', '')}",
+                            "recommendation": "Optymalizuj Interaction to Next Paint (cel: <200ms)."})
+        elif inp and inp.get("value", 0) > 200:
+            issues.append({"category": "performance", "severity": MEDIUM,
+                            "issue": f"INP wymaga poprawy ({label}): {inp.get('display', '')}",
+                            "recommendation": "Popraw INP (cel: <200ms, akceptowalne: <500ms)."})
+        ttfb = cwv.get("ttfb", {})
+        if ttfb and ttfb.get("value", 0) > 1800:
+            issues.append({"category": "performance", "severity": HIGH,
+                            "issue": f"TTFB za wysoki ({label}): {ttfb.get('display', '')}",
+                            "recommendation": "Optymalizuj TTFB (cel: <800ms)."})
+        elif ttfb and ttfb.get("value", 0) > 800:
+            issues.append({"category": "performance", "severity": MEDIUM,
+                            "issue": f"TTFB wymaga poprawy ({label}): {ttfb.get('display', '')}",
+                            "recommendation": "Popraw TTFB (cel: <800ms)."})
 
 
 def _check_scripts(issues: list, scripts: dict) -> None:

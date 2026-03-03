@@ -5,7 +5,7 @@ import subprocess
 
 
 class Config:
-    """Seoleo runtime configuration — detects available features."""
+    """SEO GACA runtime configuration — detects available features."""
 
     @property
     def has_dataforseo(self) -> bool:
@@ -28,7 +28,7 @@ class Config:
 
     @property
     def data_dir(self) -> str:
-        return os.getenv("SEOLEO_DATA_DIR", os.path.expanduser("~/.seoleo"))
+        return os.getenv("GACA_DATA_DIR", os.path.expanduser("~/.gaca"))
 
     def status(self) -> dict:
         return {

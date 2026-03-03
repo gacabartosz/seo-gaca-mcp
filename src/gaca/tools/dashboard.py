@@ -96,7 +96,7 @@ def _compare_dicts(audit1: dict, audit2: dict, label1: str = "before", label2: s
 def compare_audits(domain: str, date1: str, date2: str) -> dict:
     """Compare two historical audit snapshots for a domain to track SEO changes over time.
 
-    Since seoleo does not include persistent storage, this tool returns:
+    Since gaca does not include persistent storage, this tool returns:
     1. A structured comparison template showing the expected format.
     2. Instructions on how to store and compare audit results.
     3. The ``_compare_dicts`` helper is available for programmatic use when
@@ -159,12 +159,12 @@ def compare_audits(domain: str, date1: str, date2: str) -> dict:
         "message": (
             "Seoleo does not include persistent audit storage. "
             "Save audit results as JSON files and use the comparison format below. "
-            "The _compare_dicts() helper in seoleo.tools.dashboard can diff two audit dicts programmatically."
+            "The _compare_dicts() helper in gaca.tools.dashboard can diff two audit dicts programmatically."
         ),
         "instructions": instructions,
         "comparison_format_example": example_comparison,
         "usage_code": (
-            "from seoleo.tools.dashboard import _compare_dicts\n"
+            "from gaca.tools.dashboard import _compare_dicts\n"
             "import json\n\n"
             f'with open("audit_{date1}.json") as f:\n'
             f"    audit1 = json.load(f)\n"

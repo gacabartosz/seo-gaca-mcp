@@ -77,6 +77,8 @@ def parse_cwv(json_path: str) -> dict:
         "cumulative-layout-shift": "cls",
         "speed-index": "si",
         "interactive": "tti",
+        "experimental-interaction-to-next-paint": "inp",
+        "server-response-time": "ttfb",
     }
     try:
         with open(json_path) as f:

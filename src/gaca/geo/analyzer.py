@@ -8,8 +8,8 @@ import re
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from seoleo.core.collectors import fetch_html, fetch_robots
-from seoleo.core.parsers import parse_meta_tags, parse_schema, parse_headings
+from gaca.core.collectors import fetch_html, fetch_robots
+from gaca.core.parsers import parse_meta_tags, parse_schema, parse_headings
 
 # Princeton 9 GEO methods with measured uplift percentages
 PRINCETON_METHODS = {

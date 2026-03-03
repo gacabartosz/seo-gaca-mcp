@@ -5,21 +5,21 @@ import time
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from seoleo.core.collectors import (
+from gaca.core.collectors import (
     check_resource, discover_sitemap_urls, fetch_headers, fetch_html,
     fetch_page_without_ua, fetch_robots, fetch_sitemap, fetch_ssl_info,
     get_hosting_info,
 )
-from seoleo.core.parsers import (
+from gaca.core.parsers import (
     fetch_and_parse_css_media_queries, parse_headings, parse_html_tag,
     parse_images, parse_links, parse_meta_tags, parse_schema, parse_scripts,
     parse_ux_elements,
 )
-from seoleo.core.analyzers import (
+from gaca.core.analyzers import (
     calculate_scores, detect_issues, detect_ux_issues,
     generate_recommendations, generate_top5_problems, generate_top5_quickwins,
 )
-from seoleo.core.lighthouse import run_full_lighthouse
+from gaca.core.lighthouse import run_full_lighthouse
 
 logger = logging.getLogger(__name__)
 

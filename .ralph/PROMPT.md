@@ -1,7 +1,7 @@
-# seoleo-mcp — Ralph Autonomous Dev Loop
+# seo-gaca-mcp — Ralph Autonomous Dev Loop
 
 ## You Are
-Claude Code working autonomously on seoleo-mcp — a Python FastMCP server with 37 SEO/UX/GEO audit tools.
+Claude Code working autonomously on seo-gaca-mcp — a Python FastMCP server with 37 SEO/UX/GEO audit tools.
 
 ## Project Context
 - MCP server is WORKING (37 tools registered)
@@ -14,7 +14,7 @@ Claude Code working autonomously on seoleo-mcp — a Python FastMCP server with 
 ## Current Objectives
 
 ### Phase 1: Implement remaining tool modules
-For each stub in `src/seoleo/tools/`, implement real logic. Use the existing `seoleo.core.*` modules (collectors, parsers, analyzers) as building blocks. Look at `tools/technical.py` as the reference implementation pattern.
+For each stub in `src/gaca/tools/`, implement real logic. Use the existing `gaca.core.*` modules (collectors, parsers, analyzers) as building blocks. Look at `tools/technical.py` as the reference implementation pattern.
 
 Priority order:
 
@@ -110,7 +110,7 @@ Priority order:
     - Score trends per category
 
 ### Phase 2: Data files
-Create reference data in `src/seoleo/data/`:
+Create reference data in `src/gaca/data/`:
 - `google_schema_requirements.json` — required/recommended fields per schema type
 - `bot_signatures.json` — User-Agent patterns for search engine bots
 - `wcag_rules.json` — WCAG 2.2 AA rule definitions
@@ -123,7 +123,7 @@ Use `respx` for mocking HTTP requests.
 ## Implementation Rules
 - ONE module per loop iteration
 - Keep function signatures matching what server.py expects
-- All imports from `seoleo.core.*` (no sys.path hacks)
+- All imports from `gaca.core.*` (no sys.path hacks)
 - Return dict: `{status, url, timestamp, data, issues, score, recommendations}`
 - NEVER print to stdout (breaks MCP stdio)
 - Commit after each successful module
@@ -131,9 +131,9 @@ Use `respx` for mocking HTTP requests.
 ## Build & Verify
 After implementing each module:
 ```bash
-uv run python -c "from seoleo.tools.{module} import {function}; print('OK')"
+uv run python -c "from gaca.tools.{module} import {function}; print('OK')"
 # Verify all 37 tools still register:
-printf '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}\n{"jsonrpc":"2.0","method":"notifications/initialized"}\n{"jsonrpc":"2.0","id":2,"method":"tools/list"}\n' | uv run seoleo-mcp 2>/dev/null | python3 -c "import sys,json;[print(json.dumps(json.loads(l))) for l in sys.stdin if l.strip()]" | grep -c '"name"'
+printf '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}\n{"jsonrpc":"2.0","method":"notifications/initialized"}\n{"jsonrpc":"2.0","id":2,"method":"tools/list"}\n' | uv run seo-gaca-mcp 2>/dev/null | python3 -c "import sys,json;[print(json.dumps(json.loads(l))) for l in sys.stdin if l.strip()]" | grep -c '"name"'
 # Run tests:
 uv run pytest tests/ -x
 ```

@@ -1,51 +1,50 @@
-# seoleo-mcp
+# seo-gaca-mcp
 
-The most comprehensive SEO/UX/GEO MCP server.
-
-**33 tools** covering technical SEO, content analysis, accessibility, security, and AI search optimization (GEO).
+**SEO GACA MCP** — **G**EO · **A**udit · **C**rawl · **A**nalyze
 
 ```
-   _____ ______ ____  _      ______ ____
-  / ____|  ____/ __ \| |    |  ____/ __ \
- | (___ | |__ | |  | | |    | |__ | |  | |  __  __  ___ ____
-  \___ \|  __|| |  | | |    |  __|| |  | | |  \/  |/ __|| __ \
-  ____) | |___| |__| | |____| |___| |__| | | |\/| | (__ | ___/
- |_____/|______\____/|______|______\____/  |_|  |_|\___||_|
+   ___   ___    ___         ___    ___    ___    ___
+  / __| | __|  / _ \       / __|  /   \  / __|  /   \
+  \__ \ | _|  | (_) |  _  | (_ | | - | | (__  | - |
+  |___/ |___|  \___/  (_)  \___| |_|_|  \___|  |_|_|
+         GEO · Audit · Crawl · Analyze
 ```
+
+The most comprehensive SEO / Performance / GEO / UX MCP server.
+
+**37 tools** in one MCP — technical SEO, Lighthouse performance (CWV + INP + TTFB), GEO (AI search optimization), content analysis, accessibility, security, UX audit, and more.
+
+## What It Does
+
+| Area | What GACA Measures |
+|------|-------------------|
+| **Performance** | Lighthouse scores (mobile + desktop), Core Web Vitals: LCP, FCP, CLS, TBT, SI, TTI, **INP**, **TTFB**. Fallback basic timing when Lighthouse unavailable |
+| **Technical SEO** | Meta tags, robots.txt, sitemap, crawlability, HTTP headers, canonical, hreflang |
+| **GEO** | AI search optimization — Princeton 9 methods, AI crawler robots.txt, AI citation readiness, optimization checklist |
+| **Content** | Readability (Flesch-Kincaid, Gunning Fog, FRE), keyword density, E-E-A-T signals, topic clusters |
+| **Schema** | JSON-LD validation vs Google requirements, 10 templates, Rich Results eligibility |
+| **Security** | SSL/TLS audit, 7+ security headers, mixed content detection |
+| **Links** | BFS crawl + internal link graph, broken link scan |
+| **Accessibility** | WCAG 2.2 Level AA, color contrast, tap targets, font size |
+| **UX** | Navigation, search, semantic structure, responsive design, mobile menu, skip links |
+| **Competitors** | Side-by-side comparison (up to 3 URLs) with optional Lighthouse benchmarking |
+| **International** | Hreflang validation, local SEO, NAP extraction |
+| **Media** | Image/video SEO audit, format detection |
+| **Reports** | Structured JSON + branded PDF (EN/PL) |
 
 ## Status
 
-> **Alpha** — 33 tools fully implemented.
+> **Alpha** — 37 tools fully implemented.
 > Contributions welcome!
-
-## Features
-
-- **Full 13-step SEO+UX audit** with 11-category scoring (1-10)
-- **GEO**: Generative Engine Optimization for AI search (ChatGPT, Perplexity, SGE, Claude, Copilot)
-- Princeton 9 methods for AI citation optimization (+40% visibility boost)
-- AI crawler robots.txt analysis and generation (13 AI bots tracked)
-- Lighthouse + Core Web Vitals (optional, graceful fallback)
-- UX audit (navigation, search, semantics, responsive, overlays)
-- **PDF report generation** (JSON structure + branded PDF, EN/PL)
-- WCAG 2.2 accessibility audit
-- Schema.org validation with 10 JSON-LD templates
-- Internal link graph analysis with BFS crawler
-- SSL/TLS audit + 7 security headers check
-- Content readability (FK, Fog, FRE) + E-E-A-T signals
-- Side-by-side competitor comparison (up to 3)
-- Hreflang validation + local SEO + media audit
-- JS rendering / SPA detection (React, Next.js, Vue, Angular)
-- Server log analysis + GSC CSV import
-- Topic cluster structure analysis
 
 ## Quick Start
 
 ```bash
 # Install via pip
-pip install seoleo-mcp
+pip install seo-gaca-mcp
 
 # Or via uv
-uv pip install seoleo-mcp
+uv pip install seo-gaca-mcp
 ```
 
 ## Usage with Claude Desktop
@@ -55,8 +54,8 @@ Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "seoleo": {
-      "command": "seoleo-mcp"
+    "gaca": {
+      "command": "seo-gaca-mcp"
     }
   }
 }
@@ -67,9 +66,9 @@ Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "seoleo": {
+    "gaca": {
       "command": "uvx",
-      "args": ["seoleo-mcp"]
+      "args": ["seo-gaca-mcp"]
     }
   }
 }
@@ -78,21 +77,27 @@ Add to your `claude_desktop_config.json`:
 ## Docker
 
 ```bash
-docker build -t seoleo-mcp .
+docker build -t seo-gaca-mcp .
 # Test via MCP stdio:
-echo '...' | docker run -i seoleo-mcp
+echo '...' | docker run -i seo-gaca-mcp
 ```
 
 ## Tools Reference
 
-### Technical SEO (5)
+### Performance (1)
+
 | Tool | Description |
 |------|-------------|
-| `seo_audit_technical` | Full 13-step SEO+UX audit with scoring |
+| `seo_check_performance` | Lighthouse scores + Core Web Vitals: LCP, FCP, CLS, TBT, SI, TTI, INP, TTFB (mobile + desktop) |
+
+### Technical SEO (4)
+
+| Tool | Description |
+|------|-------------|
+| `seo_audit_technical` | Full 13-step SEO + UX audit with 11-category scoring (1-10) |
 | `seo_check_meta` | Quick meta tags analysis |
 | `seo_check_crawlability` | Robots.txt + sitemap validation |
-| `seo_check_headers` | HTTP security headers check |
-| `seo_check_performance` | Lighthouse CWV (mobile+desktop) |
+| `seo_check_headers` | HTTP response headers check |
 
 ### GEO — AI Search Optimization (7)
 
@@ -100,23 +105,11 @@ echo '...' | docker run -i seoleo-mcp
 |------|-------------|
 | `seo_audit_geo` | Princeton 9 methods GEO audit |
 | `seo_optimize_geo` | GEO optimization suggestions |
-| `seo_check_ai_robots` | AI crawler robots.txt analysis |
+| `seo_check_ai_robots` | AI crawler robots.txt analysis (13 bots tracked) |
 | `seo_generate_ai_robots` | Generate AI-optimized robots.txt |
 | `seo_check_ai_visibility` | AI citation readiness check |
 | `seo_get_geo_checklist` | GEO optimization checklist (P0/P1/P2) |
 | `seo_get_seo_checklist` | Traditional SEO checklist (P0/P1/P2) |
-
-### Reporting (1)
-
-| Tool | Description |
-|------|-------------|
-| `seo_generate_report` | JSON report + branded PDF generation (EN/PL) |
-
-### Utility (1)
-
-| Tool | Description |
-|------|-------------|
-| `seo_get_config` | Server status and feature availability |
 
 ### Content Analysis (3)
 
@@ -138,40 +131,62 @@ echo '...' | docker run -i seoleo-mcp
 
 | Tool | Description |
 |------|-------------|
-| `seo_audit_ssl` | Full SSL/TLS audit |
-| `seo_check_security_headers` | Security headers analysis |
+| `seo_audit_ssl` | Full SSL/TLS audit (cert chain, TLS versions, ciphers) |
+| `seo_check_security_headers` | 7+ security headers analysis |
 
 ### Links (2)
 
 | Tool | Description |
 |------|-------------|
-| `seo_audit_links` | BFS crawl + link graph analysis |
+| `seo_audit_links` | BFS crawl + internal link graph analysis |
 | `seo_check_broken_links` | Quick broken link scan |
 
-### Other (5)
+### Accessibility (1)
 
 | Tool | Description |
 |------|-------------|
 | `seo_audit_accessibility` | WCAG 2.2 Level AA audit |
-| `seo_check_hreflang` | International SEO validation |
+
+### International & Local (3)
+
+| Tool | Description |
+|------|-------------|
+| `seo_check_hreflang` | Hreflang validation + reciprocal link check |
 | `seo_audit_local` | Local SEO + NAP extraction |
 | `seo_audit_media` | Image/video SEO audit |
-| `seo_compare_competitors` | Side-by-side comparison (up to 3) |
+
+### Competitors (1)
+
+| Tool | Description |
+|------|-------------|
+| `seo_compare_competitors` | Side-by-side comparison (up to 3) with optional Lighthouse |
 
 ### Advanced (4)
 
 | Tool | Description |
 |------|-------------|
-| `seo_check_js_rendering` | SPA/JS rendering detection |
-| `seo_analyze_logs` | Server log analysis |
-| `seo_analyze_gsc` | Google Search Console data analysis |
-| `seo_compare_audits` | Audit diff and trends |
+| `seo_check_js_rendering` | SPA/JS rendering detection (React, Next.js, Vue, Angular, Nuxt) |
+| `seo_analyze_logs` | Server access log analysis |
+| `seo_analyze_gsc` | Google Search Console CSV data analysis |
+| `seo_compare_audits` | Audit diff and historical trends |
+
+### Reporting (1)
+
+| Tool | Description |
+|------|-------------|
+| `seo_generate_report` | Structured JSON report + branded PDF generation (EN/PL) |
+
+### Utility (1)
+
+| Tool | Description |
+|------|-------------|
+| `seo_get_config` | Server status, feature availability, version info |
 
 ## GEO: AI Search Optimization
 
-GEO (Generative Engine Optimization) helps your content get cited by AI search engines.
+GEO (Generative Engine Optimization) helps your content get cited by AI search engines (ChatGPT, Perplexity, SGE, Claude, Copilot).
 
-Based on Princeton research (arXiv:2311.09735, KDD 2024), these methods increase AI citation probability:
+Based on Princeton research (arXiv:2311.09735, KDD 2024):
 
 | Method | Uplift | Description |
 |--------|--------|-------------|
@@ -185,17 +200,32 @@ Based on Princeton research (arXiv:2311.09735, KDD 2024), these methods increase
 | Fluency | +15% | Natural flow, good structure |
 | Keyword Stuffing | **-10%** | Actively avoid! |
 
+## Performance Metrics
+
+GACA measures all Core Web Vitals including the newest metrics:
+
+| Metric | Full Name | Good | Needs Improvement | Poor |
+|--------|-----------|------|-------------------|------|
+| **LCP** | Largest Contentful Paint | <2.5s | 2.5–4.0s | >4.0s |
+| **INP** | Interaction to Next Paint | <200ms | 200–500ms | >500ms |
+| **CLS** | Cumulative Layout Shift | <0.1 | 0.1–0.25 | >0.25 |
+| **FCP** | First Contentful Paint | <1.8s | 1.8–3.0s | >3.0s |
+| **TTFB** | Time to First Byte | <800ms | 800–1800ms | >1800ms |
+| **TBT** | Total Blocking Time | <200ms | 200–600ms | >600ms |
+| **SI** | Speed Index | <3.4s | 3.4–5.8s | >5.8s |
+| **TTI** | Time to Interactive | <3.8s | 3.8–7.3s | >7.3s |
+
 ## Configuration
 
 ```bash
-# Optional: Lighthouse timeout
-export SEOLEO_LIGHTHOUSE_TIMEOUT=120
+# Optional: Lighthouse timeout (default: 120s)
+export GACA_LIGHTHOUSE_TIMEOUT=120
 ```
 
 ## License
 
-MIT License - Bartosz Gaca
+MIT License — Bartosz Gaca
 
 ---
 
-Built with MCP (Model Context Protocol) by Anthropic.
+Built with [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) by Anthropic.

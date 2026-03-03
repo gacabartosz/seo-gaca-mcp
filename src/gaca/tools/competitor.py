@@ -6,9 +6,9 @@ from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
-from seoleo.core.collectors import fetch_headers, fetch_html
-from seoleo.core.config import config
-from seoleo.core.parsers import parse_headings, parse_images, parse_links, parse_meta_tags, parse_schema
+from gaca.core.collectors import fetch_headers, fetch_html
+from gaca.core.config import config
+from gaca.core.parsers import parse_headings, parse_images, parse_links, parse_meta_tags, parse_schema
 
 logger = logging.getLogger(__name__)
 
@@ -356,7 +356,7 @@ def compare_competitors(
     lighthouse_data: dict | None = None
     if include_lighthouse and config.has_lighthouse:
         try:
-            from seoleo.core.lighthouse import run_full_lighthouse
+            from gaca.core.lighthouse import run_full_lighthouse
 
             all_urls = [client_url] + [c["url"] for c in competitor_results]
             lighthouse_data = {}

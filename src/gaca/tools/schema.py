@@ -3,8 +3,8 @@
 import logging
 from datetime import datetime, timezone
 
-from seoleo.core.collectors import fetch_html
-from seoleo.core.parsers import parse_schema
+from gaca.core.collectors import fetch_html
+from gaca.core.parsers import parse_schema
 
 logger = logging.getLogger(__name__)
 

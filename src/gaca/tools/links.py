@@ -8,8 +8,8 @@ from urllib.parse import urlparse
 
 import requests
 
-from seoleo.core.collectors import fetch_html
-from seoleo.core.parsers import parse_links
+from gaca.core.collectors import fetch_html
+from gaca.core.parsers import parse_links
 
 logger = logging.getLogger(__name__)
 

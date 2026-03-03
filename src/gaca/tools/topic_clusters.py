@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
-from seoleo.core.collectors import discover_sitemap_urls, fetch_html, fetch_robots, fetch_sitemap
+from gaca.core.collectors import discover_sitemap_urls, fetch_html, fetch_robots, fetch_sitemap
 
 logger = logging.getLogger(__name__)
 

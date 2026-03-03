@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from seoleo.core.collectors import fetch_html, fetch_headers
+from gaca.core.collectors import fetch_html, fetch_headers
 
 logger = logging.getLogger(__name__)
 
